@@ -109,8 +109,12 @@ J -->|Yes| K[Keep Rolling - Recover via Profit]
 
 ## 🌍 Vision & Future Plans
 
-🔗 Integrate Chainlink VRF for cryptographically secure verifiable randomness.
-🏪 Add an NFT Marketplace for trading in-game artifacts.
-🎮 Expand to multiplayer gameplay with leaderboards.
-🌐 Deploy to BOT Chain Mainnet.
-💰 Introduce staking & rewards for HPOLY holders.
+- 🔗 Integrate Chainlink VRF for cryptographically secure verifiable randomness.
+  
+- 🏪 Add an NFT Marketplace for trading in-game artifacts.
+  
+- 🎮 Expand to multiplayer gameplay with leaderboards.
+  
+- 🌐 Deploy to BOT Chain Mainnet.
+  
+- 💰 Introduce staking & rewards for HPOLY holders.
