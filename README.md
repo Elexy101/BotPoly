@@ -105,6 +105,7 @@ E --> H{Have 200+ HPOLY?}
 H -->|Yes| I[Claim Point & Clear Debt]
 F --> J{Balance = 0?}
 J -->|Yes| K[Keep Rolling - Recover via Profit]
+```
 
 ## 🌍 Vision & Future Plans
 
