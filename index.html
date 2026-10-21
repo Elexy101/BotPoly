@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOTPOLY | BOT Chain Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Board -->
+        <div id="board">
+            <div class="board-title">BOTPOLY</div>
+            <div id="diceResult"></div>
+        </div>
+
+        <!-- UI Panel -->
+        <div id="uiPanel">
+            <button id="helpBtn" title="How to Play">?</button>
+
+            <h1>BOTPOLY</h1>
+            <p class="subtitle">Solo blockchain game on BOT Chain</p>
+
+            <!-- Wallet -->
+            <div id="walletPanel">
+                <button id="connectWallet">CONNECT WALLET</button>
+                <div id="walletInfo" style="display: none">
+                    <div class="wallet-address">
+                        Connected: <span id="walletAddress"></span>
+                    </div>
+
+                    <!-- Asset Cards -->
+                    <div class="asset-grid">
+                        <div class="asset-card gas">
+                            <span class="asset-label">GAS</span>
+                            <span class="asset-value"><span id="botBalance">0</span> tBOT</span>
+                        </div>
+                        <div class="asset-card usdt">
+                            <span class="asset-label">USDT</span>
+                            <span class="asset-value"><span id="usdtBalance">0</span></span>
+                        </div>
+                        <div class="asset-card hpoly">
+                            <span class="asset-label">HPOLY</span>
+                            <span class="asset-value"><span id="tokenBalance">0</span></span>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        Points: <span id="points" class="accent">0</span>
+                    </div>
+
+                    <div class="auto-refresh-toggle">
+                        <label class="switch">
+                            <input type="checkbox" id="autoRefreshToggle" checked />
+                            <span class="slider"></span>
+                        </label>
+                        <span>Auto-Refresh</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Status -->
+            <div id="playerInfo">
+                <h3>PLAYER: <span id="playerStatus" class="accent">Not Started</span></h3>
+                <div class="info-row">Position: <span id="playerPosition">0</span></div>
+                <div class="info-row">Balance: <span id="playerBalance">0</span> HPOLY</div>
+            </div>
+
+            <!-- Game Actions -->
+            <div id="gameActions">
+                <button id="mintTokensBtn" class="game-btn">MINT HPOLY</button>
+                <button id="startGameBtn" class="game-btn">START GAME</button>
+                <button id="rollDiceBtn" class="game-btn" disabled>ROLL DICE</button>
+                <button id="claimPointBtn" class="game-btn disabled" disabled>CLAIM POINT</button>
+                <button id="endGameBtn" class="game-btn" disabled>END GAME</button>
+            </div>
+
+            <!-- USDT Boost Shop -->
+            <div id="usdtShop" class="shop-panel">
+                <h3>USDT BOOSTS</h3>
+                <div class="shop-item">
+                    <div>
+                        <strong>Lucky Reroll</strong>
+                        <small>Reroll after a bad landing</small>
+                    </div>
+                    <button class="shop-buy" data-item="reroll" data-cost="1">1 USDT</button>
+                </div>
+                <div class="shop-item">
+                    <div>
+                        <strong>Double Reward</strong>
+                        <small>Next profit landing ×2</small>
+                    </div>
+                    <button class="shop-buy" data-item="double" data-cost="2">2 USDT</button>
+                </div>
+                <div id="boostCredits" class="boost-credits"></div>
+            </div>
+
+            <!-- Game Info -->
+            <div id="gameInfo">
+                <div class="info-row">Next Required HPOLY: <span id="nextRequiredHPOLY">0</span></div>
+                <div class="info-row">Total Supply: <span id="totalSupply">0</span> HPOLY</div>
+            </div>
+
+            <!-- Tile Details -->
+            <div id="tileDetails" style="display: none">
+                <h3 id="tileName"></h3>
+                <div>Type: <span id="tileType"></span></div>
+                <div>Value: <span id="tileValue"></span> HPOLY</div>
+            </div>
+
+            <!-- Log -->
+            <div id="gameLog">
+                <h3>GAME LOG</h3>
+                <div id="logEntries"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>How to Play BOTPOLY</h2>
+            <ol>
+                <li><strong>Connect</strong> MetaMask to BOT Chain Testnet (Chain ID 968). Claim tBOT and tUSDT from the <a href="https://faucet.botchain.ai" target="_blank">BOT Chain Faucet</a>.</li>
+                <li><strong>Mint HPOLY</strong> – one-time 100 HPOLY starter tokens.</li>
+                <li><strong>Start Game</strong> – lock your starting balance.</li>
+                <li><strong>Roll Dice</strong> – move around 12 tiles. PROFIT tiles earn HPOLY, LOSS tiles burn it.</li>
+                <li><strong>Buy Boosts</strong> – spend Test USDT on Rerolls or Double Rewards.</li>
+                <li><strong>Claim Point</strong> – burn the required HPOLY to earn a permanent point.</li>
+                <li><strong>End Game</strong> – stop playing and release your state.</li>
+            </ol>
+            <p>Contract explorer: <a href="https://scan.bohr.life" target="_blank">Bohr Scan</a></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
